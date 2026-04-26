@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Voucher | Dirección de Marca Personal</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 28px;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: #fff;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(255, 120, 220, 0.35), transparent 32%),
+        radial-gradient(circle at 80% 10%, rgba(116, 80, 255, 0.45), transparent 35%),
+        radial-gradient(circle at 50% 90%, rgba(0, 220, 255, 0.28), transparent 35%),
+        linear-gradient(135deg, #12051f 0%, #1b0b2f 42%, #07020f 100%);
+      overflow: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: radial-gradient(circle, black 30%, transparent 78%);
+      pointer-events: none;
+    }
+
+    .voucher {
+      width: min(100%, 520px);
+      position: relative;
+      padding: 34px 28px;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 32px;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(24px) saturate(145%);
+      -webkit-backdrop-filter: blur(24px) saturate(145%);
+      box-shadow:
+        0 28px 90px rgba(0, 0, 0, 0.42),
+        inset 0 1px 0 rgba(255, 255, 255, 0.22);
+      overflow: hidden;
+    }
+
+    .voucher::before {
+      content: "";
+      position: absolute;
+      inset: -2px;
+      background: linear-gradient(135deg, rgba(255, 104, 220, 0.45), rgba(120, 95, 255, 0.2), rgba(0, 220, 255, 0.28));
+      opacity: 0.45;
+      filter: blur(28px);
+      z-index: -1;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 13px;
+      margin-bottom: 22px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    h1 {
+      font-size: clamp(34px, 8vw, 56px);
+      line-height: 0.92;
+      letter-spacing: -0.06em;
+      margin-bottom: 18px;
+    }
+
+    .gradient-text {
+      display: block;
+      background: linear-gradient(90deg, #ffffff, #ffc5f2, #bfb1ff, #9cefff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .subtitle {
+      font-size: 17px;
+      line-height: 1.55;
+      color: rgba(255, 255, 255, 0.78);
+      margin-bottom: 26px;
+    }
+
+    .details {
+      display: grid;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .detail {
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.075);
+      border: 1px solid rgba(255, 255, 255, 0.13);
+      color: rgba(255, 255, 255, 0.84);
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    .detail strong {
+      color: #fff;
+      font-weight: 700;
+    }
+
+    .cta {
+      display: block;
+      width: 100%;
+      padding: 16px 18px;
+      border-radius: 999px;
+      text-align: center;
+      text-decoration: none;
+      color: #16051e;
+      font-weight: 800;
+      background: linear-gradient(90deg, #fff, #ffc1ef, #aef4ff);
+      box-shadow: 0 16px 42px rgba(255, 112, 220, 0.28);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 20px 54px rgba(160, 120, 255, 0.34);
+    }
+
+    .footer {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.48);
+    }
+
+    .orb {
+      position: fixed;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      filter: blur(8px);
+      opacity: 0.35;
+      pointer-events: none;
+    }
+
+    .orb.one {
+      top: -60px;
+      left: -50px;
+      background: #ff5fd2;
+    }
+
+    .orb.two {
+      right: -70px;
+      bottom: -80px;
+      background: #5edbff;
+    }
+  </style>
+</head>
+<body>
+  <div class="orb one"></div>
+  <div class="orb two"></div>
+
+  <main class="voucher">
+    <div class="eyebrow">Voucher exclusivo</div>
+
+    <h1>
+      Dirección de
+      <span class="gradient-text">Marca Personal</span>
+    </h1>
+
+    <p class="subtitle">
+      Una sesión estratégica para ordenar tu mensaje, tu presencia digital y el camino para llevar personas hacia una sesión de coaching.
+    </p>
+
+    <section class="details">
+      <div class="detail">
+        <strong>Incluye:</strong> diagnóstico de marca, claridad de oferta, revisión de perfil y ruta inicial de contenido.
+      </div>
+
+      <div class="detail">
+        <strong>Ideal para:</strong> coaches, mentores, terapeutas, facilitadores o profesionales que quieren comunicar mejor su transformación.
+      </div>
+
+      <div class="detail">
+        <strong>Formato:</strong> sesión 1 a 1 online o presencial según disponibilidad.
+      </div>
+    </section>
+
+    <a class="cta" href="https://wa.me/573227123180?text=Hola,%20quiero%20reclamar%20mi%20voucher%20de%20Direcci%C3%B3n%20de%20Marca%20Personal">
+      Reclamar mi voucher
+    </a>
+
+    <p class="footer">ArtDäSak · Marca, estrategia y presencia digital</p>
+  </main>
+</body>
+</html>
